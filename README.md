@@ -21,7 +21,7 @@ AI故事書生成網站
 使用以下內容在儲存庫的根目錄中建立本機 .env 檔案：
 
 ```bash
-OPENAI_API_KEY=YOUR_KEY_HERE---輸入你開通的API金鑰
+OPENAI_API_KEY=YOUR_KEY_HERE
 ```
 
 ## 檔案須裝的語法
