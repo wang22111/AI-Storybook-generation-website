@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-Tw">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./static/css/header.css" />
+    <link rel="stylesheet" href="./static/css/my_video.css" />
+    <title>Generated Video</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo"><a href="/">AI Storybook Generation Website</a></div>
+            <ul class="links">
+                <% if (current_user?.is_authenticated) {%>
+                    <li><a href="my_images">圖片</a></li>
+                    <li><a href="my_video">影片</a></li>
+                    <li><a href="about">關於</a></li>
+                    <li><a href="logout" class="action_btn">登出</a></li>
+                    <li><a href="generate" class="action_btn">創作</a></li>
+                    <span class="user_name">
+                        <%=current_user.username %>
+                    </span>
+                    <% }else {%>
+                        <li><a href="register">註冊</a></li>
+                        <li><a href="login">登入</a></li>
+                        <li><a href="about">關於</a></li>
+                        <li><a href="login" class="action_btn">創作</a></li>
+                        <% }%>
+            </ul>
+            <div class="toggle_btn">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+
+        <div class="dropdown_menu">
+            <% if (current_user?.is_authenticated) {%>
+                <li><a href="my_images">圖片</a></li>
+                <li><a href="my_video">影片</a></li>
+                <li><a href="about">關於</a></li>
+                <li><a href="logout" class="action_btn">登出</a></li>
+                <li><a href="generate" class="action_btn">創作</a></li>
+                <span class="user_name">
+                    <%=current_user.username %>
+                </span>
+                <% }else {%>
+                    <li><a href="register">註冊</a></li>
+                    <li><a href="login">登入</a></li>
+                    <li><a href="about">關於</a></li>
+                    <li><a href="login" class="action_btn">創作</a></li>
+                    <% }%>
+        </div>
+    </header>
+
+    <div class="container">
+        <h1 class="text-center">Generated Video</h1>
+        <div class="video-container">
+            <video id="generatedVideo" controls>
+                <source src="/video/<%= current_user.id %>/story.mp4" alt="video">
+                Your browser does not support the video tag.
+            </video>
+            <a href="/video/<%= current_user.id %>/story.mp4" class="btn btn-send" download>Download Video</a>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="./static/js/navbar.js"></script>
+</body>
+
+</html>

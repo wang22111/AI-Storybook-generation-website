@@ -1,0 +1,128 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+}
+
+body {
+  height: 100vh;
+  background-color: #ffebee;
+  background-size: cover;
+  background-position: center;
+  background-image: url('../image/dog.jpg');
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #000 !important;
+  font-size: 1rem;
+}
+
+a:hover {
+  color: orange;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 0 2rem;
+  background-color: #c0cccd;
+  z-index: 1000;
+}
+
+.navbar {
+  width: 100%;
+  height: 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar .logo a {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.navbar .links {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.navbar .toggle_btn {
+  color: #000;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: none; /* Hidden by default for larger screens */
+}
+
+.action_btn {
+  background-color: orange;
+  color: #000;
+  padding: 0.5rem 1rem;
+  border: none;
+  outline: none;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.action_btn:hover {
+  transform: scale(1.05);
+  color: #000;
+}
+
+.action_btn:active {
+  transform: scale(0.95);
+}
+
+.dropdown_menu {
+  display: none; /* Hidden by default */
+  position: absolute;
+  right: 2rem;
+  top: 60px;
+  width: 200px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.dropdown_menu.open {
+  display: block; /* Shown when the menu is open */
+}
+
+.dropdown_menu li {
+  padding: 0.8rem;
+  text-align: center;
+}
+
+.dropdown_menu .action_btn {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* New CSS rule to remove margin-bottom */
+dl, ol, ul {
+  margin-bottom: 0 !important;
+}
+
+@media (max-width: 768px) {
+  .navbar .links {
+    display: none; /* Hide links on small screens */
+  }
+  .navbar .toggle_btn {
+    display: block; /* Show the toggle button on small screens */
+  }
+}

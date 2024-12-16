@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-Tw">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./static/css/header.css" />
+    <link rel="stylesheet" href="./static/css/about.css" />
+    <title>AI Storybook Generation Website - About</title>
+</head>
+
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo"><a href="/">AI Storybook Generation Website</a></div>
+            <ul class="links">
+                <% if (current_user?.is_authenticated) {%>
+                    <li><a href="my_images">圖片</a></li>
+                    <li><a href="my_video">影片</a></li>
+                    <li><a href="about">關於</a></li>
+                    <li><a href="logout" class="action_btn">登出</a></li>
+                    <li><a href="generate" class="action_btn">創作</a></li>
+                    <span class="user_name"><%= current_user.username %></span>
+                    <% }else {%>
+                        <li><a href="register">註冊</a></li>
+                        <li><a href="login">登入</a></li>
+                        <li><a href="about">關於</a></li>
+                        <li><a href="login" class="action_btn">創作</a></li>
+                        <% }%>
+            </ul>
+            <div class="toggle_btn">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+
+        <div class="dropdown_menu">
+            <% if (current_user?.is_authenticated) {%>
+                <li><a href="my_images">圖片</a></li>
+                <li><a href="my_video">影片</a></li>
+                <li><a href="about">關於</a></li>
+                <li><a href="logout" class="action_btn">登出</a></li>
+                <li><a href="generate" class="action_btn">創作</a></li>
+                <span class="user_name">
+                    <%=current_user.username %>
+                </span>
+                <% }else {%>
+                    <li><a href="register">註冊</a></li>
+                    <li><a href="login">登入</a></li>
+                    <li><a href="about">關於</a></li>
+                    <li><a href="login" class="action_btn">創作</a></li>
+                    <% }%>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="title">
+                <h1>About Us</h1>
+            </div>
+            <div class="content">
+                <div class="text-box">
+                    <div class="about">
+                        <h2>About</h2>
+                        <p></p>
+                        <p>歡迎來到我們的 AI 故事書生成網站，這裡是想像力與科技的結合!，結合了所有的方法創造出一個獨特的故事書網站，也利用人工智慧的技術生成出AI生成式網站。</p>
+                        <p>我們的網站主旨提供文字轉圖像工具，讓想像力豐富但缺乏繪畫能力的創作者以圖像方式呈現故事，更生動地表達創作。再以視覺化方式呈現故事，提高閱讀障礙者的閱讀體驗。通過圖像化呈現提高閱讀障礙者對故事的記憶和理解能力。</p>
+                        <p>加入我們，踏上這段令人興奮的旅程，體驗 AI 生成故事書。探索我們的網站、自訂您的故事書，燃燒您的創作魂！</p>
+                    </div>
+                </div>
+                <div class="image-box">
+                    <img src="../static/image/about-dog.jpg" alt="Dog with a book">
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="./static/js/navbar.js"></script>
+</body>
+
+</html>
